@@ -1,0 +1,69 @@
+<div class="ui card">
+  <div class="image">
+    <img src="https://robohash.org/<%= @artist.avatar %>? set=set2" />
+  </div>
+  <div class="content">
+    <p class="header"> 
+      <%= @artist.artist_name %>
+    </p>
+    <div class="meta">
+      <span class="ui label"><%= @artist.artist_type %></span>
+    </div>
+    <br />
+    <div class="ui button">
+      <%= link_to "Edit", edit_artist_path(@artist) %>
+    </div>
+    <div class="ui button">
+      <%= link_to "Back", artists_path %>
+    </div>
+    <div class="ui button">
+      <%= link_to "Delete", method: :delete %>
+    </div>
+  </div>
+</div>
+
+<hr />
+
+<h1>Songs</h1>
+<div class="ui button">
+<%= link_to 'Add Song', new_artist_song_path(@artist) %>
+</div>
+<div class="ui four column grid"> 
+    <% @artist.songs.each do |song| %>
+    <div class=column>
+      <div class="ui small image">
+        <img src="https://robohash.org/<%= @artist.avatar %>? set=set2" />
+      </div>
+      <div class="content">
+        <div class="header">
+          <%= song.song_name %>
+        </div>
+        <div class="meta">
+          <span class="ui label">Genre: <%= song.genre %></span>
+        </div>
+        <div class="meta">
+          <span class="ui label">Song Length: <%= song.play_time %></span>
+        </div>
+        <div class="meta">
+          <span class="ui label">Date Released: <%= song.date_released %></span>
+        </div>
+        <div class="meta">
+          <span>Lyrics: </span>
+          <span class="description"><%= song.lyrics %></span>
+        </div>
+        <div class="ui basic green button">
+        <%= link_to 'Edit', edit_artist_song_path(@artist, song) %>
+      </div>
+      <div class="ui basic red button">
+      <%= link_to "Delete", method: :delete %>
+      </div>
+      </div>
+    </div>
+  
+  <% end %>
+
+</div>
+</div>
+<div class="ui button">
+<%= link_to 'Add Song', new_artist_song_path(@artist) %>
+</div>

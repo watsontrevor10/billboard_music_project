@@ -1,0 +1,26 @@
+<%= form_with(model: @artist, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :artist_name %>
+    <%= f.text_field :artist_name, required: true, placeholder: "First Name"%>
+  </div>
+  <div class="field">
+    <%= f.label :artist_type %>
+    <%= f.text_field :artist_type, required: true, placeholder: "Band or Artist"%>
+  </div>
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.text_field :avatar, required: true, placeholder: "Avatar"%>
+  </div>
+  <div class="field">
+    <%= f.label :home_city %>
+    <%= f.text_field :home_city, placeholder: "City"%>
+  </div>
+  <div class="field">
+    <%= f.label :home_state %>
+    <%= f.text_field :home_state, placeholder: "State"%>
+  </div>
+    <%= f.submit class: "ui button"%>
+  <div class="ui button">
+    <%= link_to 'Cancel', artists_path %>
+  </div>
+<% end %>
